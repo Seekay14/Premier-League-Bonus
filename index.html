@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premier League Bonus Offer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <div class="background">
+        <div class="container">
+            <!-- Image Section -->
+            <div class="image-container">
+                <img src="your-image-url.jpg" alt="Premier League Bonus" class="banner-image">
+            </div>
+
+            <h1>Welcome to the Premier League Bonus Offer!</h1>
+            <p>We're excited to offer you an exclusive bonus for Premier League fans! To qualify for this special offer, please follow the instructions below:</p>
+            <ol>
+                <li><strong>Add Your Betway Logins</strong>: To receive your bonus, you need to add your Betway login credentials. This offer is exclusively available for Betway users.</li>
+                <li><strong>Exclusive to Betway Users</strong>: Kindly note that this bonus is only available for users who have a Betway account. If you’re not a Betway user yet, you can sign up <a href="#">here</a> to join.</li>
+            </ol>
+
+            <!-- Image before "How to Claim Your Bonus" -->
+            <div class="bonus-image-container">
+                <img src="bonus-image-url.jpg" alt="Claim Your Bonus" class="bonus-image">
+            </div>
+
+            <h2>How to Claim Your Bonus:</h2>
+            <ol>
+                <li>Log in to your account on our platform.</li>
+                <li>Navigate to the Bonus Section.</li>
+                <li>Enter your Betway Login Information.</li>
+                <li>Submit to receive your Premier League bonus.</li>
+            </ol>
+            <p><strong>Important Note</strong>: Make sure to enter your Betway credentials accurately to ensure you receive your bonus without any issues.</p>
+            <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+            <button id="claimBonus" disabled>Claim Your Bonus</button>
+        </div>
+    </div>
+
+    <script>
+        function onSubmit(e) {
+            e.preventDefault();
+            // Implement your logic to handle form submission after reCAPTCHA verification
+            alert('Form submitted!');
+        }
+
+        document.getElementById('claimBonus').addEventListener('click', onSubmit);
+
+        function enableButton() {
+            document.getElementById('claimBonus').disabled = false;
+        }
+
+        function onloadCallback() {
+            if (grecaptcha.getResponse()) {
+                enableButton();
+            }
+        }
+
+        grecaptcha.render('recaptcha', {
+            'sitekey' : 'YOUR_SITE_KEY',
+            'callback' : enableButton
+        });
+    </script>
+</body>
+</html>

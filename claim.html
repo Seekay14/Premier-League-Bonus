@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim Your Bonus - Enter Name</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background">
+        <div class="container">
+            <h1>Enter Your Name</h1>
+            <p>To proceed with claiming your bonus, please enter your name below. We will use this information to personalize your experience.</p>
+            
+            <form id="nameForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <button type="submit">Continue</button>
+            </form>
+
+            <p><a href="index.html">Back to Main Page</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('nameForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            if (name) {
+                localStorage.setItem('userName', name);
+                window.location.href = 'login.html'; // Redirect to the login page or the next step
+            }
+        });
+    </script>
+</body>
+</html>
